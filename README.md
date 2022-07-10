@@ -1,3 +1,3 @@
 # Inception
 
-![A test image](image.png)
+![A test image](inception.png)
