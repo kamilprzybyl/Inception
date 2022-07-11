@@ -4,9 +4,9 @@ This project consists of several virtualized Docker images
 Service: A container for an application that can actually include several container instances running the same image
 
 Gotta create free services:
-  nginx - web server
-  mariadb - database management system
-  wordpress - 
+  - nginx - web server
+  - mariadb - database management system
+  - wordpress - content management system
   
 
 Below is an example of the expected result:<br>
