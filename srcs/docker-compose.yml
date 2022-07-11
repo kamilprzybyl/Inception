@@ -4,8 +4,19 @@ volumes:
 
 services:
   nginx:
-    build: ./requirements/nginx
+    name:
+    build: requirements/nginx
+    ports:
+      - "443:443"
+    newtworks:
+      - ?
   mariadb:
+    name:
     build: ./requirements/mariadb
+    newtworks:
+      - ?
   wordpress:
     build: ./requirements/wordpress
+    newtworks:
+      - ?
+    name:
