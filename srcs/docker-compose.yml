@@ -16,6 +16,8 @@ services:
     newtworks:
       - ?
   wordpress:
+     depends_on:
+      - mariadb
     build: ./requirements/wordpress
     newtworks:
       - ?
