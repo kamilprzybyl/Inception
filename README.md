@@ -4,7 +4,7 @@ This project consists of several virtualized Docker images
 Service: A container for an application that can actually include several container instances running the same image
 1. The containers are built from the penultimate stable version of Debian Buster
 
-Gotta create free services:
+Gotta create containers for three services:
   - nginx - web server
   - mariadb - database management system
   - wordpress - content management system
