@@ -1,24 +1,13 @@
-version: "3.9"
-volumes:
-
+version: '3'
 
 services:
-  nginx:
-    name:
-    build: requirements/nginx
-    ports:
-      - "443:443"
-    newtworks:
-      - ?
-  mariadb:
-    name:
-    build: ./requirements/mariadb
-    newtworks:
-      - ?
-  wordpress:
-     depends_on:
-      - mariadb
-    build: ./requirements/wordpress
-    newtworks:
-      - ?
-    name:
+  mysql:
+    image: mariadb
+    volumes:
+      - /data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql_root_pass
+      MYSQL_DATABASE: db_name
+      MYSQL_USER: user_name
+      MYSQL_PASSWORD: user_pass
+    restart: always
