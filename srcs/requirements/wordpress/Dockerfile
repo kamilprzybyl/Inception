@@ -14,4 +14,4 @@ RUN wget https://wordpress.org/latest.zip
 RUN unzip latest.zip
 RUN mv wordpress yourdomain.com
 RUN cd yourdomain.com
-RUN cp wp-config-sample.php wp-config.php
+RUN cp wp-config-sample.php wp-config.ph

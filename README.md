@@ -16,3 +16,9 @@ Below is an example of the expected result:<br>
 <img src="https://user-images.githubusercontent.com/83188617/154948111-0615a5d3-e90c-4dad-ab75-12c0642994f6.png" width="500">
 Multi-Container Deployment of WordPress using Docker
 -->
+
+## Newtwork
+By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by them at a hostname identical to the container name.
+The only way I found to change the name of the network was defining an entry under “networks”:
+```networks:
+  my-network-name:```

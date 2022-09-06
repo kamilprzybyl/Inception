@@ -1,41 +1,71 @@
 version: '3.8'
 
+# volumes:
+#   mariadb_volume: (db):
+#     driver:
+#     driver_opts:
+#       type:
+#       o:
+#       device:
+#   wordpress_volume: (www):
+#     driver:
+#     driver_opts:
+#       type:
+#       o:
+#       device: /home/login/data
+
 services:
   mariadb:
     image: mariadb
-    volumes:
-      - mariadb:/var/lib/mysql
+    # volumes:
+      # - db_data:/var/lib/mysql
+      # - /data/mysql:/var/lib/mysql
     environment:
+      MARIADB_USER=example-user
+      MARIADB_PASSWORD=my_cool_secret
+      MARIADB_ROOT_PASSWORD=my-secret-pw
+      # - .env
+      # syntax to file
+
       # MYSQL_ROOT_PASSWORD: mysql_root_pass
       # MYSQL_DATABASE: db_name
       # MYSQL_USER: user_name
       # MYSQL_PASSWORD: user_pass
-    restart: always
-  wordpress:
-    image: wordpress
-    volumes:
-      # - /data/html:/var/www/html
-    depends_on:
-      - mysql
-    environment:
-      # WORDPRESS_DB_HOST: mysql
-      # MYSQL_ROOT_PASSWORD: mysql_root_pass
-      # WORDPRESS_DB_NAME: db_name
-      # WORDPRESS_DB_USER: user_name
-      # WORDPRESS_DB_PASSWORD: user_pass
-      # WORDPRESS_TABLE_PREFIX: wp_
-    links:
-      - mysql
-    restart: always
-  nginx:
-    image: nginx
-    volumes:
-      # - nginx:/etc/nginx/conf.d
-      # - /data/html:/var/www/html
-    ports:
-      - 8080:80
-    links:
-      - wordpress
+    # restart: always
+  # wordpress:
+  #   image: wordpress
+  #   networks:
+  #     - inception
+  #   volumes:
+  #       # - html_data:/var/www/html
+  #       - /data/html:/var/www/html
+  #   depends_on:
+  #     - mysql
+  #   environment:
+  #     - .env
+  #     # WORDPRESS_DB_HOST: mysql
+  #     # MYSQL_ROOT_PASSWORD: mysql_root_pass
+  #     # WORDPRESS_DB_NAME: db_name
+  #     # WORDPRESS_DB_USER: user_name
+  #     # WORDPRESS_DB_PASSWORD: user_pass
+  #     # WORDPRESS_TABLE_PREFIX: wp_
+  #     # ports:
+  #     # 3306
+  #   restart: always
+  # nginx:
+  #   image: nginx
+  #   volumes:
+  #     # - nginx-data:/etc/nginx/conf.d
+  #     - ./nginx/conf/my_nginx.conf:/etc/nginx/conf.d/default.conf   //video!
+  #     # - nginx:/etc/nginx/conf.d
+  #     - /data/html:/var/www/html
+  #     # - html-data:/var/www/html
+  #   depends_on:
+  #     - wordpress
+  #   ports:
+  #     - 8080:80
 
-
-# TODO: links' forbidden, use networks
+  # volumes:
+  #   db-data:
+  #   html-data:
+  #   nginx-data:
