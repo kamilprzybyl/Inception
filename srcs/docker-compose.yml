@@ -22,16 +22,9 @@ services:
       # - /data/mysql:/var/lib/mysql
     env_file:
       - .env
-      # syntax to file
-
-      # MYSQL_ROOT_PASSWORD: mysql_root_pass
-      # MYSQL_DATABASE: db_name
-      # MYSQL_USER: user_name
-      # MYSQL_PASSWORD: user_pass
+    restart: always
   # wordpress:
   #   image: wordpress
-  #   networks:
-  #     - inception
   #   volumes:
   #       # - html_data:/var/www/html
   #       - /data/html:/var/www/html
@@ -39,12 +32,6 @@ services:
   #     - mysql
   #   environment:
   #     - .env
-  #     # WORDPRESS_DB_HOST: mysql
-  #     # MYSQL_ROOT_PASSWORD: mysql_root_pass
-  #     # WORDPRESS_DB_NAME: db_name
-  #     # WORDPRESS_DB_USER: user_name
-  #     # WORDPRESS_DB_PASSWORD: user_pass
-  #     # WORDPRESS_TABLE_PREFIX: wp_
   #     # ports:
   #     # 3306
   #   restart: always
