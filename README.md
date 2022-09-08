@@ -18,7 +18,10 @@ Multi-Container Deployment of WordPress using Docker
 -->
 
 ## FastCGI Proxying
-One of the main use-cases of FastCGI proxying within Nginx is for PHP processing. Apache, which can handle PHP processing directly with the use of the mod_php module, Nginx must rely on a separate PHP processor to handle PHP requests. Most often, this processing is handled with ***php-fpm***, a PHP processor that has been extensively tested to work with Nginx.
+Nginx doesn’t know how to run a PHP script of its own. It needs a PHP module like PHP-FPM to efficiently manage PHP scripts. PHP-FPM, on the other hand, runs outside the NGINX environment by creating its own process. Therefore when a user requests a PHP page the nginx server will pass the request to PHP-FPM service using FastCGI.</br>
+The installation of php-fpm on Debian depends on PHP version. Assuming you have already installed the latest PHP 7.3, then you can install FPM using the following apt-get command.</br>
+```apt-get install php7.3-fpm```</br>
+The FPM service will start automatically, once the installation is over.
 
 ## Newtwork
 By default Compose sets up a single network for your app. Each container for a service joins the default network and is both reachable by other containers on that network, and discoverable by them at a hostname identical to the container name.
