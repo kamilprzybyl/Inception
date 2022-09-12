@@ -20,7 +20,9 @@ Multi-Container Deployment of WordPress using Docker
 ## FastCGI Proxying
 Nginx doesn’t know how to run a PHP script of its own. It needs a PHP module like PHP-FPM to efficiently manage PHP scripts. PHP-FPM, on the other hand, runs outside the NGINX environment by creating its own process. Therefore when a user requests a PHP page the nginx server will pass the request to PHP-FPM service using FastCGI.</br>
 The installation of php-fpm on Debian depends on PHP version. Assuming you have already installed the latest PHP 7.3, then you can install FPM using the following apt-get command.</br>
-```apt-get install php7.3-fpm```</br>
+```
+apt-get install php7.3-fpm
+```
 The FPM service will start automatically, once the installation is over.
 
 ## Newtwork
@@ -30,3 +32,9 @@ The only way I found to change the name of the network was defining an entry und
 networks:
   my-network-name:
 ```
+
+CGI
+```
+fastcgi_pass php:9000;
+```
+Docker Compose will automatically resolve the php keyword to whatever private IP address it assigned to the PHP container.
