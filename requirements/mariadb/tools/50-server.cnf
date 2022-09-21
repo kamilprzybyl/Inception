@@ -1,6 +1,11 @@
 #
 # These groups are read by MariaDB server.
 # Use it for options that only the server (but not clients) should see
+# https://gdevops.gitlab.io/tuto_databases/mariadb/installation/debian/10/10.html
+# MariaDB configuration files
+#
+# These groups are read by MariaDB server.
+# Use it for options that only the server (but not clients) should see
 #
 # See the examples of server my.cnf files in /usr/share/mysql
 
