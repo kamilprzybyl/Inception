@@ -2,6 +2,8 @@
 <!--
 This project consists of several virtualized Docker images
 
+# SORRY, THE BELOW ARE JUST NOTES
+
 Service: A container for an application that can actually include several container instances running the same image
 1. The containers are built from the penultimate stable version of Debian Buster
 
