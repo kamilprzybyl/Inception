@@ -17,7 +17,7 @@ Below is an example of the expected result:<br>
 
 <img src="https://user-images.githubusercontent.com/83188617/154948111-0615a5d3-e90c-4dad-ab75-12c0642994f6.png" width="500">
 Multi-Container Deployment of WordPress using Docker
--->
+
 # SORRY, THE BELOW ARE JUST NOTES
 ## FastCGI Proxying
 Nginx doesn’t know how to run a PHP script of its own. It needs a PHP module like PHP-FPM to efficiently manage PHP scripts. PHP-FPM, on the other hand, runs outside the NGINX environment by creating its own process. Therefore when a user requests a PHP page the nginx server will pass the request to PHP-FPM service using FastCGI.</br>
@@ -40,3 +40,4 @@ CGI
 fastcgi_pass php:9000;
 ```
 Docker Compose will automatically resolve the php keyword to whatever private IP address it assigned to the PHP container.
+-->
